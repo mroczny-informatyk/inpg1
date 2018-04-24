@@ -15,10 +15,7 @@ std::string to_string(const Vehicle& vehicle) {
 
 std::string to_string(std::vector<Vehicle*>::const_iterator vehicles_begin,
                       std::vector<Vehicle*>::const_iterator vehicles_end) {
-
- to it = vehicles_begin; it != vehicles_end; ++it) {
-        const auto& vehicle = *(*it);
-        s += to_string(vehicle);
+  s += to_string(vehicle);
         s += "\n";
     }
 

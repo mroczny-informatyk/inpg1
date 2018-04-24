@@ -1,7 +1,7 @@
 #include "catalogue.hpp"
 
 #include <sstream>
-#include <iomanip>
+#include <iomanip> //MANIP
 #include <algorithm>
 
 std::string to_string(const Product& product) {

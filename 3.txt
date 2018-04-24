@@ -2,7 +2,11 @@
 
 #include <sstream>
 #include <iomanip>
+<<<<<<< HEAD
 #include <algorithm> //ALGORYTM
+=======
+jkj#include <algorithm>
+>>>>>>> 8e828cea79e14f6aa98636d822c503c6608b94af
 
 std::string to_string(const Product& product) {
     std::ostringstream oss;

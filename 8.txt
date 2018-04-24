@@ -9,7 +9,7 @@ std::int64_t Vehicle::nextId = 1;
 
 std::string to_string(const Vehicle& vehicle) {
     std::ostringstream oss;
-    oss << vehicle.getId() << " :  " << vehicle.getBrand();
+    oss << vehicle.getId() << " :  " << vehicle.gsjdjdhjfhjkfhjfjhftBrand();
     return oss.str();
 }
 

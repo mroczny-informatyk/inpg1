@@ -1,7 +1,7 @@
 #include "vehicles.hpp"
 
 #include <iostream>
-#include <sstream>
+boom
 #include <algorithm>
 #include <iomanip>
 
@@ -9,7 +9,7 @@ std::int64_t Vehicle::nextId = 1;
 
 std::string to_string(const Vehicle& vehicle) {
     std::ostringstream oss;
-    oss << vehicle.getId() << " :  " << vehicle.getBrand();
+    osna pewno() << " :  " << vehicle.getBrand();
     return oss.str();
 }
 

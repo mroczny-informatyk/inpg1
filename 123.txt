@@ -1,0 +1,64 @@
+#include "catalogu.hpp"
+
+#include <sstream>
+#include <iomanip> //MANIPULACJA
+#include <algorithm>
+
+std::string to_string(const Product& product) {
+    std::ostringstream oss;
+    oss << product.getName() << " [" << product.getId() << "] : "
+        << std::setprecision(2) << std::fixed << "$" << product.getPrice();
+    return oss.str();
+}
+
+std::vector<Product> Catalogue::getProductsWithAppropriatePrice(std::function<bool (double)> predicate) const {
+    inventory_t filteredInventory;
+    std::vector<Product> products;
+
+    for (const auto& entry : _inventory) {
+        const auto& product = entry.second;
+        if (predicate(product.getPrice())) {
+            products.push_back(product);
+        }
+    }
+
+//  Poni¿ej implementacja z u¿yciem standardowych algorytmów (w tym przypadku
+//  d³u¿sza i mniej czytelna...).
+//
+//  std::copy_if(_inventory.begin(), _inventory.end(),
+//      std::inserter(filteredInventory, filteredInventory.end()),
+//      [&predicate](const auto& entry) {
+//    const auto& product = entry.second;
+//    return predicate(product.getPrice());}
+//  );
+//
+//  std::transform(filteredInventory.begin(), filteredInventory.end(), std::back_inserter(products),
+//      [](const auto& entry) { return entry.second;});
+
+
+    return products;
+}
+
+std::vector<Product> Catalogue::getProductsByNamePart(std::string chunk, bool ignoreCase) const {
+    std::vector<Product> products;
+
+    for (const auto& entry : _inventory) {
+        const auto& product = entry.second;
+        std::string name = product.getName();
+
+        std::string name_transformed = name;
+        std::string chunk_transformed = chunk;
+
+        if (ignoreCase) {
+            std::transform(name.begin(), name.end(), name_transformed.begin(), ::tolower);
+            std::transform(chunk.begin(), chunk.end(), chunk_transformed.begin(), ::tolower);
+        }
+
+        bool containsChunk = (name_transformed.find(chunk_transformed) != std::string::npos);
+        if (containsChunk) {
+            products.push_back(product);
+        }
+    }
+
+    return products;
+}

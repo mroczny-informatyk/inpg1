@@ -9,7 +9,7 @@ std::string to_string(const Product& product) {
     oss << product.getName() << " [" << product.getId() << "] : "
         << std::setprecision(2) << std::fixed << "$" << product.getPrice();
     return oss.str();
-}
+}sgsvdbdbsvsv
 
 std::vector<Product> Catalogue::getProductsWithAppropriatePrice(std::function<bool (double)> predicate) const {
     inventory_t filteredInventory;

@@ -8,10 +8,10 @@
 std::int64_t Vehicle::nextId = 1;
 
 std::string to_string(const Vehicle& vehicle) {
-    std::ostringstream oss;
+    std::ostrinstream oss;
     oss << vehicle.getId() << " :  " << vehicle.getBrand();
     return oss.str();
-}
+}ahahahahahahahahah
 
 std::string to_string(std::vector<Vehicle*>::const_iterator vehicles_begin,
                       std::vector<Vehicle*>::const_iterator vehicles_end) {
